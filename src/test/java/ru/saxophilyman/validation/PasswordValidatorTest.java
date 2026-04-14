@@ -77,4 +77,9 @@ public class PasswordValidatorTest {
         List<String> errors = validator.validate("abcdefgH1");
         assertEquals(List.of("Password must contain at least one special character"), errors);
     }
+
+//    @Test
+//    void testErrorWhenPasswordHaveSpaces(){
+//
+//    }
 }
