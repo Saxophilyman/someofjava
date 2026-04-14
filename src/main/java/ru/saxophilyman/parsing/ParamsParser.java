@@ -20,7 +20,7 @@ public class ParamsParser {
         String[] pairs = raw.split(";");
         for (String pair : pairs) {
             String trimmedPair = pair.trim();
-            String[] keyValue = pair.split("=");
+            String[] keyValue = pair.split("=", -1);
 
             if (keyValue.length != 2) {
                 throw new IllegalArgumentException("Invalid key/value pair: " + trimmedPair);
