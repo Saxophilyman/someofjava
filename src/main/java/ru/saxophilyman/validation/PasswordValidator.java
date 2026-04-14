@@ -35,6 +35,10 @@ public class PasswordValidator {
         if (password.chars().noneMatch(Character::isLowerCase)){
             errors.add("Password must contain at least one lowercase letter");
         }
+        //special characters
+        if (password.chars().noneMatch(Character::isSpaceChar)){
+            errors.add("Password must contain at least one special character");
+        }
         return errors;
     }
 }
