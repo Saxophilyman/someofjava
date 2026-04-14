@@ -15,14 +15,15 @@ public class ParamsParser {
         Map<String, String> result = new HashMap<>();
 
 
-        String[] parts = raw.split(";");
-        for (String part : parts) {
-            String trimmedPart = part.trim();
-            String[] keyValue = part.split("=");
+        String[] pairs = raw.split(";");
+        for (String pair : pairs) {
+            String trimmedPair = pair.trim();
+            String[] keyValue = pair.split("=");
 
             if (keyValue.length != 2) {
-                throw new IllegalArgumentException("Invalid key/value pair: " + trimmedPart);
+                throw new IllegalArgumentException("Invalid key/value pair: " + trimmedPair);
             }
+
             String key = keyValue[0].trim();
             String value = keyValue[1].trim();
             result.put(key, value);
