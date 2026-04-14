@@ -21,10 +21,19 @@ public class ParamsParserTest {
     }
 
     @Test
-    void testParseSimple(){
+    void testParseSimpleName(){
         ParamsParser parser = new ParamsParser();
         var result = parser.parse("name=lu");
         assertEquals("lu", result.get("name"));
         assertEquals(1, result.size());
+    }
+
+    @Test
+    void testParseComplexNameAge(){
+        ParamsParser parser = new ParamsParser();
+        var result = parser.parse("name=lu;age=20");
+        assertEquals("lu", result.get("name"));
+        assertEquals("20", result.get("age"));
+        assertEquals(2, result.size());
     }
 }
