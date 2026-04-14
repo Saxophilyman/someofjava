@@ -16,10 +16,10 @@ public class PasswordValidatorTest {
         assertEquals(List.of("Password must not be null"), errors);
     }
 
-//    @Test
-//    void testErrorWhenPasswordIsEmpty() {
-//        PasswordValidator validator = new PasswordValidator();
-//        List<String> errors = validator.validate("");
-//        assertEquals(List.of("Password must not be empty"), errors);
-//    }
+    @Test
+    void testErrorWhenPasswordIsEmpty() {
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("");
+        assertEquals(List.of("Password must not be empty"), errors);
+    }
 }
