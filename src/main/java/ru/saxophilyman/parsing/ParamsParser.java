@@ -9,7 +9,9 @@ public class ParamsParser {
         if (raw == null) {
             throw new IllegalArgumentException("Input must not be null");
         }
-
+        if (raw.isEmpty()) {
+            return Map.of();
+        }
         return new HashMap<String, String>();
     }
 
