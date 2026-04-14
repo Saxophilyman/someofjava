@@ -9,7 +9,10 @@ public class PasswordValidator {
         if (password == null) {
             return List.of("Password must not be null");
         }
-
+        //empty
+        if (password.isEmpty()) {
+            return List.of("Password must not be empty");
+        }
         return List.of();
     }
 }
