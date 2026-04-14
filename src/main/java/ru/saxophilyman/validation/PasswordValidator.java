@@ -27,6 +27,9 @@ public class PasswordValidator {
         if (password.chars().noneMatch(Character::isDigit)){
             errors.add("Password must contain at least one digit");
         }
+        if (password.chars().noneMatch(Character::isUpperCase)){
+            errors.add("Password must contain at least one uppercase letter");
+        }
         return errors;
     }
 }
