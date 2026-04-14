@@ -22,4 +22,11 @@ public class PasswordValidatorTest {
         List<String> errors = validator.validate("");
         assertEquals(List.of("Password must not be empty"), errors);
     }
+
+    @Test
+    void testErrorWhenPasswordIsShort() {
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("abc");
+        assertEquals(List.of("Password must be at least 8 characters long"), errors);
+    }
 }
