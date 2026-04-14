@@ -45,4 +45,10 @@ public class ParamsParserTest {
         assertEquals("20", result.get("age"));
         assertEquals(2, result.size());
     }
+
+    @Test
+    void testExceptionWhenInputWithoutEqual(){
+        ParamsParser parser = new ParamsParser();
+        assertThrows(IllegalArgumentException.class, () -> parser.parse("name=lu;age"));
+    }
 }
