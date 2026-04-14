@@ -36,12 +36,12 @@ public class PasswordValidator {
             errors.add("Password must contain at least one lowercase letter");
         }
         //special characters
-        if (password.chars().allMatch(Character::isLetterOrDigit)){
+        if (password.chars().noneMatch(ch -> !Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch))) {
             errors.add("Password must contain at least one special character");
         }
         //no space
-        if (password.chars().anyMatch(Character::isSpaceChar)){
-            errors.add("Password must not contain space character");
+        if (password.chars().anyMatch(Character::isWhitespace)){
+            errors.add("Password must not contain whitespace character");
         }
         return errors;
     }

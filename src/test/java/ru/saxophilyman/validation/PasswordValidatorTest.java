@@ -81,7 +81,7 @@ public class PasswordValidatorTest {
     @Test
     void testErrorWhenPasswordHaveSpaces(){
         PasswordValidator validator = new PasswordValidator();
-        List<String> errors = validator.validate("abcdefg H1");
-        assertEquals(List.of("Password must not contain space character"), errors);
+        List<String> errors = validator.validate("abcdefg H1!");
+        assertEquals(List.of("Password must not contain whitespace character"), errors);
     }
 }
