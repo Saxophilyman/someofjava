@@ -12,7 +12,10 @@ public class ParamsParser {
         if (raw.isEmpty()) {
             return Map.of();
         }
-        return new HashMap<String, String>();
+        String[] parts = raw.split("=");
+        String key = parts[0];
+        String value = parts[1];
+        return Map.of(key, value);
     }
 
 }
