@@ -5,7 +5,11 @@ import java.util.Map;
 
 public class ParamsParser {
 
-    Map<String, String> parse(String raw){
+    public Map<String, String> parse(String raw){
+        if (raw == null) {
+            throw new IllegalArgumentException("Input must not be null");
+        }
+
         return new HashMap<String, String>();
     }
 
