@@ -78,8 +78,10 @@ public class PasswordValidatorTest {
         assertEquals(List.of("Password must contain at least one special character"), errors);
     }
 
-//    @Test
-//    void testErrorWhenPasswordHaveSpaces(){
-//
-//    }
+    @Test
+    void testErrorWhenPasswordHaveSpaces(){
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("abcdefg H1");
+        assertEquals(List.of("Password must not contain space character"), errors);
+    }
 }
