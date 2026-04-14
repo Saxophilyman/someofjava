@@ -38,9 +38,9 @@ public class PasswordValidatorTest {
     }
 
     @Test
-    void testErrorWhenPasswordIsHaveNotNumber() {
+    void testErrorWhenPasswordIsHaveNotDigit() {
         PasswordValidator validator = new PasswordValidator();
-        List<String> errors = validator.validate("abc");
-        assertEquals(List.of("Password must contain at least one number"), errors);
+        List<String> errors = validator.validate("abcdefgh");
+        assertEquals(List.of("Password must contain at least one digit"), errors);
     }
 }

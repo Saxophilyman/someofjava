@@ -19,8 +19,10 @@ public class PasswordValidator {
         if (password.length() > 30) {
             return List.of("Password must be no more than 30 characters long");
         }
-        //number
-
+        //one digit
+        if (password.chars().noneMatch(Character::isDigit)){
+            return List.of("Password must contain at least one digit");
+        }
         return List.of();
     }
 }
