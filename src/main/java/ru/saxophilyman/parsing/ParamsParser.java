@@ -14,11 +14,12 @@ public class ParamsParser {
         }
         Map<String, String> result = new HashMap<>();
 
+//        raw = raw.trim();
         String[] parts = raw.split(";");
         for (String part : parts) {
             String[] keyValue = part.split("=");
-            String key = keyValue[0];
-            String value = keyValue[1];
+            String key = keyValue[0].trim();
+            String value = keyValue[1].trim();
             result.put(key, value);
         }
 
