@@ -78,4 +78,16 @@ public class ParamsParserTest {
 
         assertEquals("Key must not be empty", exception.getMessage());
     }
+
+    @Test
+    void testExceptionWhenKeyHaveDuplicate() {
+        ParamsParser parser = new ParamsParser();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> parser.parse("name=ivan;name=petr")
+        );
+
+        assertEquals("Duplicate key: name", exception.getMessage());
+    }
 }
