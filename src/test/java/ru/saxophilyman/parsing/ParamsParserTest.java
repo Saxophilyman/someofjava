@@ -19,4 +19,12 @@ public class ParamsParserTest {
 
         assertTrue(result.isEmpty());
     }
+
+    @Test
+    void testParseSimple(){
+        ParamsParser parser = new ParamsParser();
+        var result = parser.parse("name=lu");
+        assertEquals("lu", result.get("name"));
+        assertEquals(1, result.size());
+    }
 }
