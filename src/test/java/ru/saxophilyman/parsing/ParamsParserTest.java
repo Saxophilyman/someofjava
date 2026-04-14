@@ -117,4 +117,15 @@ public class ParamsParserTest {
 
         assertEquals("Empty token is not allowed", exception.getMessage());
     }
+    @Test
+    void testAllValidInput() {
+        ParamsParser parser = new ParamsParser();
+
+        var result = parser.parse("name = lu ; age = 20 ; city = tay");
+
+        assertEquals("lu", result.get("name"));
+        assertEquals("20", result.get("age"));
+        assertEquals("tay", result.get("city"));
+        assertEquals(3, result.size());
+    }
 }
