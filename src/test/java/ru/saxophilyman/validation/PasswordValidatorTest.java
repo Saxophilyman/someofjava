@@ -45,12 +45,13 @@ public class PasswordValidatorTest {
     }
 
     @Test
-    void testTwoErrorInPassword() {
+    void testSeveralErrorInPassword() {
         PasswordValidator validator = new PasswordValidator();
         List<String> errors = validator.validate("abc");
         assertEquals(List.of(
                 "Password must be at least 8 characters long",
-                "Password must contain at least one digit"
+                "Password must contain at least one digit",
+                "Password must contain at least one uppercase letter"
         ), errors);
     }
 
