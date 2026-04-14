@@ -1,5 +1,6 @@
 package ru.saxophilyman.validation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PasswordValidator {
@@ -8,21 +9,22 @@ public class PasswordValidator {
         if (password == null) {
             return List.of("Password must not be null");
         }
+        List<String> errors = new ArrayList<>();
         //empty
         if (password.isEmpty()) {
-            return List.of("Password must not be empty");
+            errors.add("Password must not be empty");
         }
         //short
         if (password.length() < 8) {
-            return List.of("Password must be at least 8 characters long");
+            errors.add("Password must be at least 8 characters long");
         }
         if (password.length() > 30) {
-            return List.of("Password must be no more than 30 characters long");
+            errors.add("Password must be no more than 30 characters long");
         }
         //one digit
         if (password.chars().noneMatch(Character::isDigit)){
-            return List.of("Password must contain at least one digit");
+            errors.add("Password must contain at least one digit");
         }
-        return List.of();
+        return errors;
     }
 }
