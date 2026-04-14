@@ -31,6 +31,10 @@ public class ParamsParser {
                 throw new IllegalArgumentException("Key must not be empty");
             }
 
+            if (result.containsKey(key)){
+                throw new IllegalArgumentException("Duplicate key: " + key);
+            }
+
             result.put(key, value);
         }
 
