@@ -16,6 +16,9 @@ public class PasswordValidator {
         if (password.length() < 8) {
             return List.of("Password must be at least 8 characters long");
         }
+        if (password.length() > 30) {
+            return List.of("Password must be no more than 30 characters long");
+        }
         return List.of();
     }
 }
