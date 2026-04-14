@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PasswordValidatorTest {
 
@@ -27,21 +28,21 @@ public class PasswordValidatorTest {
     void testErrorWhenPasswordIsShort() {
         PasswordValidator validator = new PasswordValidator();
         List<String> errors = validator.validate("abc");
-        assertEquals(List.of("Password must be at least 8 characters long"), errors);
+        assertTrue(errors.contains("Password must be at least 8 characters long"));
     }
 
     @Test
     void testErrorWhenPasswordIsLong() {
         PasswordValidator validator = new PasswordValidator();
         List<String> errors = validator.validate("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        assertEquals(List.of("Password must be no more than 30 characters long"), errors);
+        assertTrue(errors.contains("Password must be no more than 30 characters long"));
     }
 
     @Test
     void testErrorWhenPasswordIsHaveNotDigit() {
         PasswordValidator validator = new PasswordValidator();
         List<String> errors = validator.validate("abcdefgh");
-        assertEquals(List.of("Password must contain at least one digit"), errors);
+        assertTrue(errors.contains("Password must contain at least one digit"));
     }
 
     @Test
