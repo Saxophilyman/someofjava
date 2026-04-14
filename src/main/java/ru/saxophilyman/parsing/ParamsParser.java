@@ -20,6 +20,10 @@ public class ParamsParser {
         String[] pairs = raw.split(";");
         for (String pair : pairs) {
             String trimmedPair = pair.trim();
+            //TwoSemicolons
+            if (trimmedPair.isEmpty()) {
+                throw new IllegalArgumentException("Empty token is not allowed");
+            }
             String[] keyValue = pair.split("=", -1);
 
             if (keyValue.length != 2) {
