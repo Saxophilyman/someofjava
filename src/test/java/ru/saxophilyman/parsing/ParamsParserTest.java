@@ -36,4 +36,13 @@ public class ParamsParserTest {
         assertEquals("20", result.get("age"));
         assertEquals(2, result.size());
     }
+
+    @Test
+    void testParseComplexNameAgeAndTrim(){
+        ParamsParser parser = new ParamsParser();
+        var result = parser.parse("name = lu ; age = 20");
+        assertEquals("lu", result.get("name"));
+        assertEquals("20", result.get("age"));
+        assertEquals(2, result.size());
+    }
 }
