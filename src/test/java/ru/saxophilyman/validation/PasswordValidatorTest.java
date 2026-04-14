@@ -53,4 +53,11 @@ public class PasswordValidatorTest {
                 "Password must contain at least one digit"
         ), errors);
     }
+
+    @Test
+    void testErrorHaveOneUppercaseLetter() {
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("abcdefgh1");
+        assertEquals(List.of("Password must contain at least one uppercase letter"), errors);
+    }
 }
