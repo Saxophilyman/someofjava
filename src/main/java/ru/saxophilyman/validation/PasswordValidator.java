@@ -41,7 +41,7 @@ public class PasswordValidator {
         }
         //no space
         if (password.chars().anyMatch(Character::isWhitespace)){
-            errors.add("Password must not contain whitespace character");
+            errors.add("Password must not contain whitespace characters");
         }
         return errors;
     }
