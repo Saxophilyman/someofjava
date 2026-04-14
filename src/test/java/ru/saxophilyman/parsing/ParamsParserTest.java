@@ -56,4 +56,14 @@ public class ParamsParserTest {
 
         assertEquals("Invalid key/value pair: age", exception.getMessage());
     }
+    @Test
+    void testExceptionWhenInputWithoutEqual2(){
+        ParamsParser parser = new ParamsParser();
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> parser.parse("name")
+        );
+
+        assertEquals("Invalid key/value pair: name", exception.getMessage());
+    }
 }
