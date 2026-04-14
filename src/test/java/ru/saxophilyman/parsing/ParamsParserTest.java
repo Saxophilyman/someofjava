@@ -66,4 +66,16 @@ public class ParamsParserTest {
 
         assertEquals("Invalid key/value pair: name", exception.getMessage());
     }
+
+    @Test
+    void testExceptionWhenInputHaveEmptyKey(){
+        ParamsParser parser = new ParamsParser();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> parser.parse("=lu")
+        );
+
+        assertEquals("Key must not be empty", exception.getMessage());
+    }
 }

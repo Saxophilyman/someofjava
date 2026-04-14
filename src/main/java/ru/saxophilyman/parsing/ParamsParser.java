@@ -14,7 +14,7 @@ public class ParamsParser {
         }
         Map<String, String> result = new HashMap<>();
 
-//        raw = raw.trim();
+
         String[] parts = raw.split(";");
         for (String part : parts) {
             String trimmedPart = part.trim();
