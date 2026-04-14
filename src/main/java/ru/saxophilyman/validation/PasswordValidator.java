@@ -40,9 +40,9 @@ public class PasswordValidator {
             errors.add("Password must contain at least one special character");
         }
         //no space
-//        if (!password.chars().noneMatch(Character::isSpaceChar)){
-//            errors.add("Password must not contain space character");
-//        }
+        if (password.chars().anyMatch(Character::isSpaceChar)){
+            errors.add("Password must not contain space character");
+        }
         return errors;
     }
 }
