@@ -17,7 +17,12 @@ public class ParamsParser {
 //        raw = raw.trim();
         String[] parts = raw.split(";");
         for (String part : parts) {
+            String trimmedPart = part.trim();
             String[] keyValue = part.split("=");
+
+            if (keyValue.length != 2) {
+                throw new IllegalArgumentException("Invalid key/value pair: " + trimmedPart);
+            }
             String key = keyValue[0].trim();
             String value = keyValue[1].trim();
             result.put(key, value);
