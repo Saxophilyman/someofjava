@@ -106,4 +106,15 @@ public class ParamsParserTest {
         assertEquals("", result.get("name"));
         assertEquals(1, result.size());
     }
+
+    @Test
+    void testWithTwoSemicolons(){
+        ParamsParser parser = new ParamsParser();
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> parser.parse("name=ivan;;age=20")
+        );
+
+        assertEquals("Empty token is not allowed", exception.getMessage());
+    }
 }
