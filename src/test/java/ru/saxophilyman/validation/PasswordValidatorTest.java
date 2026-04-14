@@ -69,4 +69,11 @@ public class PasswordValidatorTest {
         List<String> errors = validator.validate("ABCDEFGH1");
         assertEquals(List.of("Password must contain at least one lowercase letter"), errors);
     }
+
+    @Test
+    void testErrorWhenHaveNoSpecialCharacters() {
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("abcdefgH1");
+        assertEquals(List.of("Password must contain at least one special character"), errors);
+    }
 }
