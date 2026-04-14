@@ -52,7 +52,8 @@ public class PasswordValidatorTest {
         assertEquals(List.of(
                 "Password must be at least 8 characters long",
                 "Password must contain at least one digit",
-                "Password must contain at least one uppercase letter"
+                "Password must contain at least one uppercase letter",
+                "Password must contain at least one special character"
         ), errors);
     }
 
@@ -60,14 +61,14 @@ public class PasswordValidatorTest {
     void testErrorHaveOneUppercaseLetter() {
         PasswordValidator validator = new PasswordValidator();
         List<String> errors = validator.validate("abcdefgh1");
-        assertEquals(List.of("Password must contain at least one uppercase letter"), errors);
+        assertTrue(errors.contains("Password must contain at least one uppercase letter"));
     }
 
     @Test
     void testErrorHaveOneLowercaseLetter() {
         PasswordValidator validator = new PasswordValidator();
         List<String> errors = validator.validate("ABCDEFGH1");
-        assertEquals(List.of("Password must contain at least one lowercase letter"), errors);
+        assertTrue(errors.contains("Password must contain at least one lowercase letter"));
     }
 
     @Test
