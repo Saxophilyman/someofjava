@@ -98,4 +98,12 @@ public class ParamsParserTest {
         assertEquals("", result.get("name"));
         assertEquals(1, result.size());
     }
+
+    @Test
+    void testAllowEmptyValue2(){
+        ParamsParser parser = new ParamsParser();
+        var result = parser.parse("name= ");
+        assertEquals("", result.get("name"));
+        assertEquals(1, result.size());
+    }
 }
