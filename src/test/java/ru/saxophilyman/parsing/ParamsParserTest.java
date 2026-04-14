@@ -90,4 +90,12 @@ public class ParamsParserTest {
 
         assertEquals("Duplicate key: name", exception.getMessage());
     }
+
+    @Test
+    void testAllowEmptyValue(){
+        ParamsParser parser = new ParamsParser();
+        var result = parser.parse("name=");
+        assertEquals("", result.get("name"));
+        assertEquals(1, result.size());
+    }
 }
