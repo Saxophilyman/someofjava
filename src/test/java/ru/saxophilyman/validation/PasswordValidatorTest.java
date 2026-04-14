@@ -36,4 +36,11 @@ public class PasswordValidatorTest {
         List<String> errors = validator.validate("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         assertEquals(List.of("Password must be no more than 30 characters long"), errors);
     }
+
+    @Test
+    void testErrorWhenPasswordIsHaveNotNumber() {
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("abc");
+        assertEquals(List.of("Password must contain at least one number"), errors);
+    }
 }
