@@ -9,15 +9,17 @@ public class PasswordValidator {
         if (password == null) {
             return List.of("Password must not be null");
         }
-        List<String> errors = new ArrayList<>();
         //empty
         if (password.isEmpty()) {
-            errors.add("Password must not be empty");
+            return List.of("Password must not be empty");
         }
+
+        List<String> errors = new ArrayList<>();
         //short
         if (password.length() < 8) {
             errors.add("Password must be at least 8 characters long");
         }
+        //long
         if (password.length() > 30) {
             errors.add("Password must be no more than 30 characters long");
         }
