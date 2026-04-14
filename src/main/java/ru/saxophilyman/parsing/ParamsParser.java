@@ -26,6 +26,11 @@ public class ParamsParser {
 
             String key = keyValue[0].trim();
             String value = keyValue[1].trim();
+
+            if (key.isEmpty()) {
+                throw new IllegalArgumentException("Key must not be empty");
+            }
+
             result.put(key, value);
         }
 
