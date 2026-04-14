@@ -29,4 +29,11 @@ public class PasswordValidatorTest {
         List<String> errors = validator.validate("abc");
         assertEquals(List.of("Password must be at least 8 characters long"), errors);
     }
+
+    @Test
+    void testErrorWhenPasswordIsLong() {
+        PasswordValidator validator = new PasswordValidator();
+        List<String> errors = validator.validate("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        assertEquals(List.of("Password must be no more than 30 characters long"), errors);
+    }
 }
